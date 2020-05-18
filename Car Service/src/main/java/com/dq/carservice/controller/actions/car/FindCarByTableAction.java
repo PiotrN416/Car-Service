@@ -2,7 +2,6 @@ package com.dq.carservice.controller.actions.car;
 
 import com.dq.carservice.controller.Action;
 import com.dq.carservice.helpers.utils.ConstraintsUtil;
-import com.dq.carservice.helpers.utils.EntitiesHelper;
 import com.dq.carservice.helpers.utils.ViewHelper;
 import com.dq.carservice.model.entities.Car;
 import com.dq.carservice.model.repositories.CarRepository;
@@ -23,8 +22,7 @@ public class FindCarByTableAction extends Action {
 
         List<Car> byTable = carRepo.findByTable(table);
 
-        ViewHelper.displaySearchResults(
-                "cars", EntitiesHelper.carsToEntities(byTable), view);
+        ViewHelper.displaySearchResults("cars", byTable, view);
 
         return ConstraintsUtil.OPERATION_SUCCESS_MESSAGE;
     }

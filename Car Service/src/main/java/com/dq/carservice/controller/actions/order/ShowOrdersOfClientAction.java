@@ -2,7 +2,6 @@ package com.dq.carservice.controller.actions.order;
 
 import com.dq.carservice.controller.Action;
 import com.dq.carservice.helpers.utils.ConstraintsUtil;
-import com.dq.carservice.helpers.utils.EntitiesHelper;
 import com.dq.carservice.helpers.utils.ViewHelper;
 import com.dq.carservice.model.entities.Client;
 import com.dq.carservice.model.entities.Order;
@@ -35,8 +34,7 @@ public class ShowOrdersOfClientAction extends Action {
         }
 
         List<Order> orders = orderRepo.findOfClient(client);
-        ViewHelper.displaySearchResults(
-                "Orders", EntitiesHelper.ordersToEntites(orders), view);
+        ViewHelper.displaySearchResults("Orders", orders, view);
 
         return ConstraintsUtil.OPERATION_SUCCESS_MESSAGE;
     }

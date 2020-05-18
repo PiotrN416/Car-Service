@@ -2,7 +2,6 @@ package com.dq.carservice.controller.actions.order;
 
 import com.dq.carservice.controller.Action;
 import com.dq.carservice.helpers.utils.ConstraintsUtil;
-import com.dq.carservice.helpers.utils.EntitiesHelper;
 import com.dq.carservice.helpers.utils.ViewHelper;
 import com.dq.carservice.model.entities.Order;
 import com.dq.carservice.model.repositories.OrderRepository;
@@ -21,8 +20,7 @@ public class ShowInProgressOrdersAction extends Action {
     public String execute() {
         List<Order> inProgress = orderRepo.findInProgress();
 
-        ViewHelper.displaySearchResults(
-                "orders", EntitiesHelper.ordersToEntites(inProgress), view);
+        ViewHelper.displaySearchResults("orders", inProgress, view);
 
         return ConstraintsUtil.OPERATION_SUCCESS_MESSAGE;
     }
